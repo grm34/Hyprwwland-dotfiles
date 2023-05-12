@@ -1,0 +1,39 @@
+theme = "onedarkmaster"
+
+[editor]
+line-number = "absolute"
+mouse = true
+shell = ["bash", "-c"]
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
+
+[editor.indent-guides]
+render = false
+character = "|"
+skip-levels = 0
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 20
+max-indent-retain = 20
+wrap-indicator = "↪"
+wrap-at-text-width = false

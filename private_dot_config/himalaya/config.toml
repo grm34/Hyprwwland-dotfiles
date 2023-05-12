@@ -1,0 +1,52 @@
+display-name = "keyzer"
+signature-delim = "_oOo_"
+signature = "no6tem working at all"
+downloads-dir = "/home/keyzer/downloads"
+folder-listing-page-size = 12
+email-listing-page-size = 12
+email-reading-headers = ["From", "To"]
+email-reading-verify-cmd = "gpg --verify -q"
+email-reading-decrypt-cmd = "gpg -dq"
+email-writing-sign-cmd = "gpg -o - -saq"
+email-writing-encrypt-cmd = "gpg -o - -eqar <recipient>"
+
+[no6tem]
+default = true
+display-name = "keyzer"
+email = "keyzer@no6tem.work"
+
+backend = "imap"
+imap-host = "no6tem.no6tem.work"
+imap-login = "keyzer@no6tem.work"
+imap-passwd-cmd = "pass show no6tem.work"
+imap-port = 993
+imap-ssl = true
+imap-starttls = false
+imap-notify-cmd = "canberra-gtk-play -i 'complete' && dunstify -i 'email' '<sender>\n<subject>'"
+imap-notify-query = "NOT SEEN"
+imap-watch-cmds = ["himalaya --account no6tem --folder INBOX account sync"]
+
+sender = "smtp"
+smtp-host = "smtp.no6tem.work"
+smtp-login = "no6tem@no6tem.work"
+smtp-passwd-cmd = "pass show no6tem.work"
+smtp-port = 465
+smtp-ssl = true
+smtp-starttls = false
+
+sync = true
+sync-dir = "/home/keyzer/maildir/no6tem.work"
+sync-folders-strategy.only = ["INBOX"]
+
+[no6tem.folder-aliases]
+inbox = "INBOX"
+drafts = "[no6tem]/drafts"
+sent = "[no6tem]/sent"
+trash = "[no6tem]/trash"
+
+[no6tem.email-hooks]
+pre-send = "echo $1"
+
+[no6tem.email-reading-format]
+type = "auto"
+

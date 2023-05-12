@@ -1,0 +1,116 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane size="15%" {
+                plugin location="zellij:strider"
+            }
+            children
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="󰟐 Hww (main)" focus=true {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Yuck" {
+                   command "goto"
+                   args "~/.config/eww"
+                   // cwd "~/.config/eww"
+                }
+                pane name="Terminal" size="15%"
+            }
+            pane split_direction="horizontal" {
+                pane name="Scss" {
+                   command "helix"
+                   args "~/.config/eww/eww.scss"
+                   cwd "~/.config/eww"
+                }
+                pane name="Logging" size="50%" command="eww" {
+                    args "logs"
+                }
+            }
+        }
+    }
+    tab name="󰜬 Hww (widgets)" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Dock" {
+                   command "helix"
+                   args "~/.config/eww/widgets/dock.yuck"
+                   cwd "~/.config/eww/widgets"
+                }
+                pane name="Terminal" size="15%"
+            }
+            pane name="Topbar" edit="~/.config/eww/widgets/topbar.yuck"
+        }
+    }
+    tab name="󱂬 Hww (popups)" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Popup 1"
+                pane name="Terminal" size="15%"
+            }
+            pane name="Popup 2"
+        }
+    }
+    tab name=" Hww (scripts)" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Script 1"
+                pane name="Terminal" size="15%"
+            }
+            pane name="Script 2"
+        }
+    }
+    tab name="󱃼 Hww (variables)" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Basic" {
+                   command "helix"
+                   args "~/.config/eww/variables/basic.yuck"
+                   cwd "~/.config/eww/variables"
+                }
+                pane name="Symbols" {
+                   command "helix"
+                   args "~/.config/eww/variables/symbols.yuck"
+                   cwd "~/.config/eww/variables"
+                }
+            }
+            pane name="Polling" {
+                command "helix"
+                args "~/.config/eww/variables/polling.yuck"
+                cwd "~/.config/eww/variables"
+            }
+        }
+    }
+    tab name=" Hww (style)" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+            pane name="Global" {
+                command "helix"
+                args "~/.config/eww/style/global.scss"
+                cwd "~/.config/eww/style"
+                }
+                pane name="Terminal" size="15%"
+            }
+            pane name="Theme" {
+                command "helix"
+                args "~/.config/eww/style/theme.scss"
+                cwd "~/.config/eww/style"
+            }
+        }
+    }
+    tab name=" GitHub" {
+        pane split_direction="vertical" {
+            pane split_direction="horizontal" {
+                pane name="Repo"
+                pane name="Terminal" size="30%"
+            }
+            pane name="Diff"
+        }
+    } 
+}

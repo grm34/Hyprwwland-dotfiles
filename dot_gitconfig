@@ -1,0 +1,27 @@
+[user]
+	name = grm34
+	email = jerem.pardo@tutanota.com
+
+[core]
+	PAGER = delta --line-numbers --dark
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[init]
+	defaultBranch = main

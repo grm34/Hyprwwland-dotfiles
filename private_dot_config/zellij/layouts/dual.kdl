@@ -1,0 +1,8 @@
+layout {
+    tab name="arch6tem" focus=true {
+        pane split_direction="horizontal" {
+            pane name="Nushell (keyzer@arch6tem)"
+            pane name="Nushell (keyzer@arch6tem)"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+[[language]]
+name = "markdown"
+file-types = ["md", "markdown" ]
+language-server = { command = "mdpls" }
+config = { markdown.preview.serveStatic = true, markdown.preview.codeTheme = "github", markdown.preview.auto = true, markdown.preview.browser = "librewolf" }
