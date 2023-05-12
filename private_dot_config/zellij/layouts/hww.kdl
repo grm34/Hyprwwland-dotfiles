@@ -17,9 +17,8 @@ layout {
         pane split_direction="vertical" {
             pane split_direction="horizontal" {
                 pane name="Yuck" {
-                   command "goto"
-                   args "~/.config/eww"
-                   // cwd "~/.config/eww"
+                   command "helix"
+                   args "~/.config/eww/eww.yuck"
                 }
                 pane name="Terminal" size="15%"
             }
@@ -27,7 +26,6 @@ layout {
                 pane name="Scss" {
                    command "helix"
                    args "~/.config/eww/eww.scss"
-                   cwd "~/.config/eww"
                 }
                 pane name="Logging" size="50%" command="eww" {
                     args "logs"
@@ -41,7 +39,6 @@ layout {
                 pane name="Dock" {
                    command "helix"
                    args "~/.config/eww/widgets/dock.yuck"
-                   cwd "~/.config/eww/widgets"
                 }
                 pane name="Terminal" size="15%"
             }
@@ -72,18 +69,15 @@ layout {
                 pane name="Basic" {
                    command "helix"
                    args "~/.config/eww/variables/basic.yuck"
-                   cwd "~/.config/eww/variables"
                 }
                 pane name="Symbols" {
                    command "helix"
                    args "~/.config/eww/variables/symbols.yuck"
-                   cwd "~/.config/eww/variables"
                 }
             }
             pane name="Polling" {
                 command "helix"
                 args "~/.config/eww/variables/polling.yuck"
-                cwd "~/.config/eww/variables"
             }
         }
     }
@@ -93,14 +87,12 @@ layout {
             pane name="Global" {
                 command "helix"
                 args "~/.config/eww/style/global.scss"
-                cwd "~/.config/eww/style"
                 }
                 pane name="Terminal" size="15%"
             }
             pane name="Theme" {
                 command "helix"
                 args "~/.config/eww/style/theme.scss"
-                cwd "~/.config/eww/style"
             }
         }
     }
