@@ -102,7 +102,7 @@ layout {
                 pane name="Repo"
                 pane name="Terminal" size="30%"
             }
-            pane name="Diff"
+            pane name="Diff" size="50%"
         }
     } 
 }

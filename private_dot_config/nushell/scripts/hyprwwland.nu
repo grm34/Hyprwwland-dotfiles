@@ -10,6 +10,7 @@ def update_dotfiles [repo_reset: string, commit_msg: string] {
       $"($env.HOME)/.librewolf/bookmarks.json"
       $"($env.HOME)/.config/alacritty"
       $"($env.HOME)/.config/bat"
+      $"($env.HOME)/.config/broot"
       $"($env.HOME)/.config/dunst"
       $"($env.HOME)/.config/eww"
       $"($env.HOME)/.config/felix"

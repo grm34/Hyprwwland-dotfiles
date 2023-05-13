@@ -544,3 +544,5 @@ let-env config = {
 # ohmymaster
 source ~/.ohmymaster.nu
 
+
+source /home/keyzer/.config/broot/launcher/nushell/br

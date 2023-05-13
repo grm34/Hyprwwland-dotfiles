@@ -4,19 +4,18 @@
 # Configuration.
 let-env config = ($env.config | upsert show_banner false)
 let-env config = ($env.config | upsert cursor_shape.emacs block)
-let-env config = ($env.config | upsert buffer_editor 'helix')
 let-env config = ($env.config | upsert render_right_prompt_on_last_line true)
 
 # Variables.
+let-env RUST_BACKTRACE = 1
 let-env LANG = 'en_US.UTF-8'
 let-env KEYMAP = 'fr'
 let-env EDITOR = 'helix'
 let-env PAGER = 'most'
 let-env TERM = 'alacritty'
 let-env DELTA_PAGER = 'less -R'
-let-env PATH = ($env.PATH | append ['~/.cargo/bin'])
 let-env LS_COLORS = (vivid generate molokai | str trim)
-let-env RUST_BACKTRACE = 1
+let-env PATH = ($env.PATH | append ['~/.cargo/bin', '~/.local/bin'])
 
 # Starship.
 let-env STARSHIP_SESSION_KEY = (random chars -l 16)
@@ -80,4 +79,5 @@ alias gd = git diff
 alias net = ss -tulpn
 alias z = __zoxide_z
 alias zi = __zoxide_zi
+alias dots = helix ~/.config/nushell/scripts/hyprwwland.nu 
 
