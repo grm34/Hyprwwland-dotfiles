@@ -8,6 +8,7 @@ def update_dotfiles [repo_reset: string, commit_msg: string] {
       $"($env.HOME)/.gtkrc-2.0"
       $"($env.HOME)/.icons/default"
       $"($env.HOME)/.librewolf/bookmarks.json"
+      $"($env.HOME)/.local/bin"
       $"($env.HOME)/.config/alacritty"
       $"($env.HOME)/.config/bat"
       $"($env.HOME)/.config/broot"
