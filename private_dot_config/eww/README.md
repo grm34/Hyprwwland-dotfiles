@@ -17,7 +17,7 @@ A simple sharing of my [eww](https://github.com/elkowar/eww) setup on Hyprland t
 
 https://github.com/grm34/Hyprwwland/assets/6394023/36422967-54ce-401f-bd17-5b7e22b8be2d
 
-In order to keep this clean, and being only an Eww configuration, my dotfiles are on a separate repository [Hyprwwland-dotfiles](https://github.com/grm34/Hyprwwland-dotfiles).
+In order to keep this clean, and being only an eww configuration, my dotfiles are on a separate repository [Hyprwwland-dotfiles](https://github.com/grm34/Hyprwwland-dotfiles).
 
 ## What I use
 
@@ -63,7 +63,7 @@ In order to keep this clean, and being only an Eww configuration, my dotfiles ar
 
 ## Quick Install on Arch Linux
 
-- Install Eww and Hyprland with the minimum requirements :
+- Install eww and Hyprland with the minimum requirements :
 
 ```bash
 paru --needed -S hyprland eww-wayland dunst libnotify libcanberra\
@@ -95,7 +95,14 @@ The config is located in `~/.config/eww/config.json`.
 "terminal_cmd": "alacritty -e",
 "web_browser": "librewolf",
 "file_manager": "alacritty -e felix",
+"text_editor": "alacritty -e helix",
+"chat_client": "gajim",
 "sound_manager": "alacritty -e pulsemixer",
+"video_player": "mpv --player-operation-mode=pseudo-gui",
+"music_player": "alacritty -e termusic",
+"email_client": "alacritty -e himalaya write",
+"cam_recorder": "cameractrlsgtk4.py",
+"screen_recorder": "wayfarer",
 "suspend_timeout": "300",
 "sleep_timeout": "600",
 "lock_effects": "--fade-in 5s --effect-vignette 0:1",

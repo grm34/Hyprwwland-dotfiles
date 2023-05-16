@@ -27,7 +27,7 @@ layout {
                    command "helix"
                    args "~/.config/eww/eww.scss"
                 }
-                pane name="Logging" size="50%" command="eww" {
+                pane name="Logging" size="60%" command="eww" {
                     args "logs"
                 }
             }

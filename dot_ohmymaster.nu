@@ -2,9 +2,9 @@
 # Hyprwwland > by darkmaster grm34.
 
 # Configuration.
-let-env config = ($env.config | upsert show_banner false)
-let-env config = ($env.config | upsert cursor_shape.emacs block)
-let-env config = ($env.config | upsert render_right_prompt_on_last_line true)
+let-env config = ($env.config | upsert show_banner false
+                              | upsert cursor_shape.emacs block
+                              | upsert render_right_prompt_on_last_line true)
 
 # Variables.
 let-env RUST_BACKTRACE = 1
@@ -15,7 +15,9 @@ let-env PAGER = 'most'
 let-env TERM = 'alacritty'
 let-env DELTA_PAGER = 'less -R'
 let-env LS_COLORS = (vivid generate molokai | str trim)
-let-env PATH = ($env.PATH | append ['~/.cargo/bin', '~/.local/bin'])
+let-env PATH = ($env.PATH | append ['~/.cargo/bin',
+                                    '~/.local/bin',
+                                    '/opt/android-sdk/platform-tools'])
 
 # Starship.
 let-env STARSHIP_SESSION_KEY = (random chars -l 16)
@@ -62,22 +64,93 @@ source ~/.config/nushell/completions/git.nu
 source ~/.config/nushell/completions/pass.nu
 source ~/.config/nushell/completions/zellij.nu
 
-# Scripts.
-source ~/.config/nushell/scripts/hyprwwland.nu
-source ~/.config/nushell/scripts/wireguard.nu
+# Private.
+source ~/.private.nu
 
 # Aliases.
 alias c = clear
 alias q = exit
 alias hx = helix
 alias fx = felix
-alias ls = ls -d
-alias lsa = ls -da
+alias cp = cp -p
+alias ld = ls -d
+alias lsa = ls -a
+alias lsd = ls -da
 alias gl = git log --oneline
 alias gs = git status
 alias gd = git diff
 alias net = ss -tulpn
 alias z = __zoxide_z
 alias zi = __zoxide_zi
-alias dots = helix ~/.config/nushell/scripts/hyprwwland.nu 
+alias omz = helix ~/.ohmymaster.nu 
+
+# Dotfiles.
+def update_dotfiles [repo_reset: string, commit_msg: string] {
+  if ($repo_reset != '' and $commit_msg != '') {
+    let dotfiles = [
+      $"($env.HOME)/.ohmymaster.nu"
+      $"($env.HOME)/.gitconfig"
+      $"($env.HOME)/.gtkrc-2.0"
+      $"($env.HOME)/.icons/default"
+      $"($env.HOME)/.librewolf/bookmarks.json"
+      $"($env.HOME)/.local/bin"
+      $"($env.HOME)/.config/alacritty"
+      $"($env.HOME)/.config/bat"
+      $"($env.HOME)/.config/broot"
+      $"($env.HOME)/.config/dunst"
+      $"($env.HOME)/.config/eww"
+      $"($env.HOME)/.config/felix"
+      $"($env.HOME)/.config/fuzzel"
+      $"($env.HOME)/.config/gtk-2.0"
+      $"($env.HOME)/.config/gtk-3.0"
+      $"($env.HOME)/.config/gtk-4.0"
+      $"($env.HOME)/.config/helix"
+      $"($env.HOME)/.config/himalaya"
+      $"($env.HOME)/.config/hypr"
+      $"($env.HOME)/.config/neofetch"
+      $"($env.HOME)/.config/nushell"
+      $"($env.HOME)/.config/qt5ct"
+      $"($env.HOME)/.config/qt6ct"
+      $"($env.HOME)/.config/starship"
+      $"($env.HOME)/.config/systemd"
+      $"($env.HOME)/.config/xsettingsd"
+      $"($env.HOME)/.config/zathura"
+      $"($env.HOME)/.config/zellij"
+    ]
+    let conf = (ls $"($env.HOME)/.local/share/chezmoi")
+    for $entry in $conf.name {
+      if $entry =~ 'README.md' { continue } else { rm -rf $entry }
+    }
+    for $entry in $dotfiles { chezmoi add $entry }
+    (rm -rf ~/.local/share/chezmoi/private_dot_config/eww/dot_git
+            ~/.local/share/chezmoi/private_dot_config/nushell/history.txt
+            ~/.local/share/chezmoi/private_dot_config/systemd/user/default*)
+    if $repo_reset == 'yes' {
+      chezmoi git -- checkout --orphan patch_latest
+      chezmoi git -- add -A
+      chezmoi git -- commit -am $commit_msg
+      chezmoi git -- branch -D main
+      chezmoi git -- branch -m main
+    } else {
+      chezmoi git -- add -A
+      chezmoi git -- commit -m $commit_msg
+    }
+    chezmoi git -- push -f origin main
+  } else { print 'Aborted.' }
+}
+
+# Hyprwwland.
+def hww [action?: string] {
+  if $action == 'reload' {
+    pkill -f -9 eww
+    eww open-many topbar dock
+  } else if $action == 'backup-dotfiles' {
+    let repo_reset = (input 'Reset repository ? (yes/no) ')
+    let commit_msg = (input 'Enter commit message : ')
+    update_dotfiles $repo_reset $commit_msg
+  } else {
+    print 'Reload Hyprwwland (eww):      hww reload'
+    print 'Backup Hyprwwland-dotfiles:   hww backup-dotfiles'
+  }
+}
 
