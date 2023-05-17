@@ -40,9 +40,10 @@ sync-folders-strategy.only = ["INBOX"]
 
 [no6tem.folder-aliases]
 inbox = "INBOX"
-drafts = "[no6tem]/drafts"
-sent = "[no6tem]/sent"
-trash = "[no6tem]/trash"
+drafts = "drafts"
+sent = "sent"
+trash = "trash"
+spam = "spam"
 
 [no6tem.email-hooks]
 pre-send = "echo $1"
