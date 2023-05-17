@@ -5,9 +5,11 @@
 
 # export RUST_BACKTRACE=full
 
-# As you can see systemd is required here.
+# Get the status of the focused window.
+: "$(hyprctl activewindow -j | jaq '.mapped')"
+
 case $1 in
-  poweroff|reboot|suspend|hibernate) systemctl "$1" ;;
-  logout) hyprctl dispatch exit
+  dock)
+    [[ $_ != "true" ]] && eww update dock-visible=true
 esac
 
