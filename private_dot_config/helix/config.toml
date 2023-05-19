@@ -5,6 +5,8 @@ line-number = "absolute"
 mouse = true
 shell = ["bash", "-c"]
 true-color = true
+cursorline = true
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
