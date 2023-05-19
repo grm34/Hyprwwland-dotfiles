@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Hyprwwland Copyright (c) 2023 darkmaster grm34.
 # https://github.com/grm34/Hyprwwland
 
@@ -8,6 +7,7 @@
 # returns a yuck widget containing each shortcut found.
 
 # export RUST_BACKTRACE=full
+
 
 # Get required settings from config.json.
 readarray -t config <\
@@ -58,10 +58,10 @@ for app in "${apps[@]}"; do
 
   # create the widget.
   box="$box
-  (eventbox :class \"launcher-app-box\" :tooltip \"$name\"
+  (eventbox :class \"launcher-popup-app\" :tooltip \"$name\"
             :onclick \"$cmd\" :cursor \"pointer\"
     (box :orientation \"v\" :space-evenly false
-         :class \"launcher-app-icon\"
+         :class \"launcher-popup-app-icon\"
       (image :path \"$icon\" :image-width 38)
       (label :text \"$name\" :limit-width 12)))"
 done
