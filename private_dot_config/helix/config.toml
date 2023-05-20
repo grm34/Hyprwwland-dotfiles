@@ -5,7 +5,7 @@ line-number = "absolute"
 mouse = true
 shell = ["bash", "-c"]
 true-color = true
-cursorline = true
+cursorline = false
 color-modes = true
 
 [editor.cursor-shape]
