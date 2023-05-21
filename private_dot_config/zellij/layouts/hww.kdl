@@ -33,70 +33,54 @@ layout {
             }
         }
     }
-    tab name="󰜬 Hww (widgets)" {
-        pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-                pane name="Dock" {
-                   command "helix"
-                   args "~/.config/eww/widgets/dock.yuck"
-                }
-                pane name="Terminal" size="15%"
-            }
-            pane name="Topbar" edit="~/.config/eww/widgets/topbar.yuck"
+    tab name="󰜬 Hww (layouts)" {
+        pane name="Window" {
+            command "helix"
+            args "~/.config/eww/layouts/window.yuck"
         }
+        pane name="Layout"
     }
-    tab name="󱂬 Hww (popups)" {
-        pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-                pane name="Popup 1"
-                pane name="Terminal" size="15%"
-            }
-            pane name="Popup 2"
+    tab name="󱂬 Hww (widgets)" {
+        pane name="Window" {
+            command "helix"
+            args "~/.config/eww/layouts/window.yuck"
+        }
+        pane name="Button" {
+            command "helix"
+            args "~/.config/eww/layouts/event_button.yuck"
         }
     }
     tab name=" Hww (scripts)" {
-        pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-                pane name="Script 1"
-                pane name="Terminal" size="15%"
-            }
-            pane name="Script 2"
+        pane name="Window" {
+            command "helix"
+            args "~/.config/eww/layouts/window.yuck"
+        }
+        pane name="Button" {
+            command "helix"
+            args "~/.config/eww/layouts/event_button.yuck"
         }
     }
     tab name="󱃼 Hww (variables)" {
-        pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-                pane name="Basic" {
-                   command "helix"
-                   args "~/.config/eww/variables/basic.yuck"
-                }
-                pane name="Symbols" {
-                   command "helix"
-                   args "~/.config/eww/variables/symbols.yuck"
-                }
-            }
-            pane name="Polling" {
-                command "helix"
-                args "~/.config/eww/variables/polling.yuck"
-            }
+        pane name="Window" {
+            command "helix"
+            args "~/.config/eww/layouts/window.yuck"
+        }
+        pane name="Button" {
+            command "helix"
+            args "~/.config/eww/layouts/event_button.yuck"
         }
     }
     tab name=" Hww (style)" {
-        pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-            pane name="Global" {
-                command "helix"
-                args "~/.config/eww/style/global.scss"
-                }
-                pane name="Terminal" size="15%"
-            }
-            pane name="Theme" {
-                command "helix"
-                args "~/.config/eww/style/theme.scss"
-            }
+        pane name="Window" {
+            command "helix"
+            args "~/.config/eww/layouts/window.yuck"
+        }
+        pane name="Button" {
+            command "helix"
+            args "~/.config/eww/layouts/event_button.yuck"
         }
     }
-    tab name=" GitHub" {
+    tab name=" GitHub Hyprwwland" {
         pane split_direction="vertical" {
             pane split_direction="horizontal" {
                 pane name="Repo"

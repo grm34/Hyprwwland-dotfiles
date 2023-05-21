@@ -139,18 +139,21 @@ def update_dotfiles [repo_reset: string, commit_msg: string] {
   } else { print 'Aborted.' }
 }
 
-# Hyprwwland.
+# Hyprwwland-dotfiles.
 def hww [action?: string] {
-  if $action == 'reload' {
-    pkill -f -9 eww
-    eww open-many topbar dock
-  } else if $action == 'backup-dotfiles' {
-    let repo_reset = (input 'Reset repository ? (yes/no) ')
-    let commit_msg = (input 'Enter commit message : ')
+  if $action == 'push' {
+    let commit_msg = (input 'Enter commit message: ')
+    let repo_reset = 'no'
+    update_dotfiles $repo_reset $commit_msg
+  } else if $action == 'reset' {
+    let commit_msg = 'Hyprwwland-dotfiles'
+    let repo_reset = (input 'Reset repository? (yes/no) ')
     update_dotfiles $repo_reset $commit_msg
   } else {
-    print 'Reload Hyprwwland (eww):      hww reload'
-    print 'Backup Hyprwwland-dotfiles:   hww backup-dotfiles'
+    print 'Hyprwwland-dotfiles (https://github.com/grm34/Hyprwwland-dotfiles)'
+    print '-------------------'
+    print 'Push the changes:      hww push'
+    print 'Reset commit history:  hww reset'
   }
 }
 
