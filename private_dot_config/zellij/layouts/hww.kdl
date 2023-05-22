@@ -25,10 +25,10 @@ layout {
             }
         }
     }
-    tab name="󰜬 Layouts" {
+    tab name="󰜬 Templates" {
         pane split_direction="vertical" {
-            pane name="Layouts"
-            pane name="Layouts"
+            pane name="Templates"
+            pane name="Templates"
         }
     }
     tab name="󱂬 Widgets" {
@@ -61,7 +61,7 @@ layout {
             pane name="Theme" edit="~/.config/eww/style/theme.scss"
         }
     }
-    tab name=" Hyprwwland" {
+    tab name="  Hyprwwland" {
         pane split_direction="vertical" {
             pane name="Diff"
             pane split_direction="horizontal" {

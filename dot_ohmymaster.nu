@@ -7,7 +7,7 @@ let-env config = ($env.config | upsert show_banner false
                               | upsert render_right_prompt_on_last_line true)
 
 # Variables.
-let-env RUST_BACKTRACE = 1
+# let-env RUST_BACKTRACE = 1
 let-env LANG = 'en_US.UTF-8'
 let-env KEYMAP = 'fr'
 let-env EDITOR = 'helix'
