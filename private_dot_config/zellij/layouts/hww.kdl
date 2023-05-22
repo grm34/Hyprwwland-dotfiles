@@ -13,80 +13,62 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="󰟐 Hww (main)" focus=true {
+    tab name="󰟐 Main" focus=true {
         pane split_direction="vertical" {
+            pane name="Yuck" edit="~/.config/eww/eww.yuck"
             pane split_direction="horizontal" {
-                pane name="Yuck" {
-                   command "helix"
-                   args "~/.config/eww/eww.yuck"
-                }
-                pane name="Terminal" size="15%"
-            }
-            pane split_direction="horizontal" {
-                pane name="Scss" {
-                   command "helix"
-                   args "~/.config/eww/eww.scss"
-                }
-                pane name="Logging" size="60%" command="eww" {
+                pane name="Scss" edit="~/.config/eww/eww.scss"
+                pane name="Terminal" size="30%"
+                pane name="Logging" size="30%" command="eww" {
                     args "logs"
                 }
             }
         }
     }
-    tab name="󰜬 Hww (layouts)" {
-        pane name="Window" {
-            command "helix"
-            args "~/.config/eww/layouts/window.yuck"
-        }
-        pane name="Layout"
-    }
-    tab name="󱂬 Hww (widgets)" {
-        pane name="Window" {
-            command "helix"
-            args "~/.config/eww/layouts/window.yuck"
-        }
-        pane name="Button" {
-            command "helix"
-            args "~/.config/eww/layouts/event_button.yuck"
-        }
-    }
-    tab name=" Hww (scripts)" {
-        pane name="Window" {
-            command "helix"
-            args "~/.config/eww/layouts/window.yuck"
-        }
-        pane name="Button" {
-            command "helix"
-            args "~/.config/eww/layouts/event_button.yuck"
-        }
-    }
-    tab name="󱃼 Hww (variables)" {
-        pane name="Window" {
-            command "helix"
-            args "~/.config/eww/layouts/window.yuck"
-        }
-        pane name="Button" {
-            command "helix"
-            args "~/.config/eww/layouts/event_button.yuck"
-        }
-    }
-    tab name=" Hww (style)" {
-        pane name="Window" {
-            command "helix"
-            args "~/.config/eww/layouts/window.yuck"
-        }
-        pane name="Button" {
-            command "helix"
-            args "~/.config/eww/layouts/event_button.yuck"
-        }
-    }
-    tab name=" GitHub Hyprwwland" {
+    tab name="󰜬 Layouts" {
         pane split_direction="vertical" {
+            pane name="Layouts"
+            pane name="Layouts"
+        }
+    }
+    tab name="󱂬 Widgets" {
+        pane split_direction="vertical" {
+            pane name="Widgets"
+            pane name="Widgets"
+        }
+    }
+    tab name=" Scripts" {
+        pane split_direction="vertical" {
+            pane name="Scripts"
+            pane name="Scripts"
+        }
+    }
+    tab name="󱃼 Polling/Listening" {
+        pane split_direction="vertical" {
+            pane name="Listening (variables)" edit="~/.config/eww/variables/listening.yuck"
+            pane name="Polling (variables)" edit="~/.config/eww/variables/polling.yuck"
+        }
+    }
+    tab name="󱃼 Basic/Symbols" {
+        pane split_direction="vertical" {
+            pane name="Symbols (variables)" edit="~/.config/eww/variables/symbols.yuck"
+            pane name="Basic (variables)" edit="~/.config/eww/variables/basic.yuck"
+        }
+    }    
+    tab name=" Style" {
+        pane split_direction="vertical" {
+            pane name="Global" edit="~/.config/eww/style/global.scss"
+            pane name="Theme" edit="~/.config/eww/style/theme.scss"
+        }
+    }
+    tab name=" Hyprwwland" {
+        pane split_direction="vertical" {
+            pane name="Diff"
             pane split_direction="horizontal" {
                 pane name="Repo"
                 pane name="Terminal" size="30%"
             }
-            pane name="Diff" size="50%"
         }
     } 
 }
+
