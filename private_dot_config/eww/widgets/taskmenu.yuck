@@ -1,0 +1,42 @@
+; Hyprwwland Copyright (c) 2023 darkmaster grm34.
+; https://github.com/grm34/Hyprwwland
+
+
+(defvar taskmenu_tabs '[
+  {"class": "tab-off", "onclick": "updates_content", "icon": " "},
+  {"class": "tab-off", "onclick": "standby_content", "icon": "󰈈 "},
+  {"class": "tab-off", "onclick": "settings_content", "icon": " "},
+  {"class": "tab-off", "onclick": "audio_content", "icon": " "},
+  {"class": "tab-off", "onclick": "network_content", "icon": "󰛳 "},
+  {"class": "tab-off", "onclick": "calendar_content", "icon": " "},
+  {"class": "tab-off", "onclick": "power_content", "icon": "⏻ "}]'
+)
+
+
+(defwidget tabs []
+  (box :class "taskmenu_tabs"
+       :orientation "v"
+       :spacing 10
+
+    (for tab in taskmenu_tabs
+      (button :class {tab.class}
+              ; :onclick "${EWW_CMD} open ${tab.onclick}"
+        (label :text {tab.icon}
+               :style "font-size: 24")))
+))
+
+
+(defwidget content []
+  (box :class "taskmenu_content"
+    "allo"
+))
+
+(defwidget taskmenu []
+  (box :class "taskmenu"
+    (box :orientation "h"
+         :spacing 14
+
+      (content)
+      (tabs)
+)))
+
