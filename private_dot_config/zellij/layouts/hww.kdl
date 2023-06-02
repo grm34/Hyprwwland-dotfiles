@@ -15,59 +15,61 @@ layout {
     }
     tab name="󰟐 Main" focus=true {
         pane split_direction="vertical" {
-            pane name="Yuck" edit="~/.config/eww/eww.yuck"
+            pane name="eww.yuck" edit="~/.config/eww/eww.yuck"
             pane split_direction="horizontal" {
-                pane name="Scss" edit="~/.config/eww/eww.scss"
-                pane name="Terminal" size="30%"
-                pane name="Logging" size="30%" command="eww" {
+                pane name="eww.scss" edit="~/.config/eww/eww.scss"
+                pane name="Logging" size="40%" command="eww" {
                     args "logs"
                 }
             }
         }
     }
-    tab name="󰜬 Templates" {
+    tab name="󱂫 Dock" {
         pane split_direction="vertical" {
-            pane name="Templates"
-            pane name="Templates"
+            pane name="widgets/dock.yuck" edit="~/.config/eww/widgets/dock.yuck"
+            pane name="scripts/dock_manager" edit="~/.config/eww/scripts/dock_manager"
         }
     }
-    tab name="󱂬 Widgets" {
+    tab name="󱂬 Workbar" {
         pane split_direction="vertical" {
-            pane name="Widgets"
-            pane name="Widgets"
+            pane name="widgets/workbar.yuck" edit="~/.config/eww/widgets/workbar.yuck"
+            pane name="scripts/workspaces_manager" edit="~/.config/eww/scripts/workspaces_manager"
         }
     }
-    tab name=" Scripts" {
+    tab name="󰓅 Mainbar" {
         pane split_direction="vertical" {
-            pane name="Scripts"
-            pane name="Scripts"
+            pane name="widgets/mainbar.yuck" edit="~/.config/eww/widgets/mainbar.yuck"
+            pane name="scripts/window_manager" edit="~/.config/eww/scripts/window_manager"
         }
     }
-    tab name="󱃼 Polling/Listening" {
+    tab name=" Taskbar" {
         pane split_direction="vertical" {
-            pane name="Listening (variables)" edit="~/.config/eww/variables/listening.yuck"
-            pane name="Polling (variables)" edit="~/.config/eww/variables/polling.yuck"
+            pane name="widgets/taskbar.yuck" edit="~/.config/eww/widgets/taskbar.yuck"
+            pane name="scripts/taskbar_manager" edit="~/.config/eww/scripts/taskbar_manager"
         }
     }
-    tab name="󱃼 Basic/Symbols" {
+    tab name="󰹯 Taskmenu" {
         pane split_direction="vertical" {
-            pane name="Symbols (variables)" edit="~/.config/eww/variables/symbols.yuck"
-            pane name="Basic (variables)" edit="~/.config/eww/variables/basic.yuck"
+            pane name="widgets/taskmenu.yuck" edit="~/.config/eww/widgets/taskmenu.yuck"
+            pane name="scripts/taskmenu_manager" edit="~/.config/eww/scripts/taskmenu_manager"
         }
     }    
-    tab name=" Style" {
+    tab name="󰮳 Taskpages" {
         pane split_direction="vertical" {
-            pane name="Global" edit="~/.config/eww/style/global.scss"
-            pane name="Theme" edit="~/.config/eww/style/theme.scss"
+            pane name="widgets/tm_"
+            pane name="widgets/tm_"
         }
     }
-    tab name="  Hyprwwland" {
+    tab name=" Style" {
+        pane split_direction="vertical" {
+            pane name="style/main.scss" edit="~/.config/eww/style/main.scss"
+            pane name="style/symbols.json" edit="~/.config/eww/style/symbols.json"
+        }
+    }
+    tab name="  Repository" {
         pane split_direction="vertical" {
             pane name="Diff"
-            pane split_direction="horizontal" {
-                pane name="Repo"
-                pane name="Terminal" size="30%"
-            }
+            pane name="Status"
         }
     } 
 }

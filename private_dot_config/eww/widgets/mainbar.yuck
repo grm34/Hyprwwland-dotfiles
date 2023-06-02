@@ -11,8 +11,9 @@
 (defwidget progress_reveal [class visible icon content]
   (eventbox :class {class}
             :cursor "progress"
-            :onhover "eww update ${class}_graph=true"
-            :onhoverlost "eww update ${class}_graph=false"
+            :timeout "2s"
+            :onhover "${EWW_CMD} update ${class}_graph=true"
+            :onhoverlost "${EWW_CMD} update ${class}_graph=false"
     (box :space-evenly false
          :orientation "v"
 
@@ -29,11 +30,13 @@
             (label :class "${class}-box-icon"
                    :text {icon})
             (label :class "${class}-box-text"
-                   :text {class != 'temp' ? "${content}%" : "${content}°C"}))
+                   :text {class != 'temp' ? "${content}%"
+                                          : "${content}°C"}))
           (progress :halign "center"
                     :valign "start"
                     :value {content}
-                    :orientation "h")))
+                    :orientation "h")
+      ))
 
       ; graph (onhover).
       (revealer :reveal {visible}
@@ -45,7 +48,8 @@
                  :value {content}
                  :time-range "10s"
                  :dynamic true
-                 :line-style "round")))
+                 :line-style "round")
+      ))
 )))
 
 
@@ -60,30 +64,30 @@
     (eventbox :class "menu"
               :cursor "pointer"
               :tooltip "Menu"
-              ; :onclick "eww open menu"
-              ; :onrightclick "eww close menu"
+              ; :onclick "${EWW_CMD} open menu"
+              ; :onrightclick "${EWW_CMD} close menu"
       (image :path "assets/images/menu.png"
              :image-width 20))
 
-    ; CPU usage.
+    ; Cpu.
     (progress_reveal :class "cpu"
                      :visible {cpu_graph}
                      :icon {icon.cpu}
                      :content {EWW_CPU.avg})
 
-    ; RAM usage.
+    ; Ram.
     (progress_reveal :class "ram"
                      :visible {ram_graph}
                      :icon {icon.ram}
                      :content {EWW_RAM.used_mem_perc})
 
-    ; DISK usage.
+    ; Disk.
     (progress_reveal :class "disk"
                      :visible {disk_graph}
                      :icon {icon.disk}
                      :content {EWW_DISK["/"].used_perc})
 
-    ; CPU temp.
+    ; Temp.
     (progress_reveal :class "temp"
                      :visible {temp_graph}
                      :icon {icon.temp}

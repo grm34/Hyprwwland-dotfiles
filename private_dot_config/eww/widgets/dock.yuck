@@ -4,8 +4,7 @@
 
 (defvar dock_visible false)
 
-(defpoll dock_manager :interval "5m"
-                      :initial "[]"
+(defpoll dock_manager :interval "5m" :initial "[]"
   "scripts/dock_manager"
 )
 
@@ -13,25 +12,25 @@
 (defwidget dock []
   (eventbox :class "dock"
             :valign "center"
-            :timeout "200ms"
+            :timeout "10s"
             :onhover "scripts/window_manager dock"
-            :onhoverlost "eww update dock_visible=false"
+            :onhoverlost "${EWW_CMD} update dock_visible=false"
     (box :space-evenly false
 
-      ; Dock button.
+      ; Button (visible).
       (revealer :reveal "${!dock_visible}"
                 :transition "slideright"
                 :duration "250ms"
         (eventbox :valign "center"
                   :width 6
-                  :cursor "pointer"
                   :tooltip "dock"
-                  :onclick "eww update dock_visible=true"
+                  :cursor "pointer"
+                  :onclick "${EWW_CMD} update dock_visible=true"
           (image :path "assets/images/dock.png"
                  :image-width 6)
       ))
 
-      ; Dock content.
+      ; Content (onclick/onhover).
       (revealer :reveal {dock_visible}
                 :transition "slideleft"
                 :duration "250ms"
@@ -46,6 +45,7 @@
                       :cursor "pointer"
               (image :path {app.icon}
                      :image-width {app.size})
-      ))))
+          ))
+      ))
 )))
 

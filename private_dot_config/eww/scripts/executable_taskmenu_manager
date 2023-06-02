@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Hyprwwland Copyright (c) 2023 darkmaster grm34.
+# https://github.com/grm34/Hyprwwland
+
+
+function eww_update() {
+  : "$(eww get taskmenu_tabs)"
+  : "$(printf '%s' "$_" | jaq -c --arg value "$1" "$2")"
+  eww update taskmenu_tabs="$_"
+}
+
+# Open taskmenu if not already open.
+if ! eww windows | grep -sqm 1 "\*taskmenu"; then
+  eww open taskmenu
+fi
+
+# Set all tabs visibility to false.
+for id in {0..6}; do
+  if [[ $id != "$1" ]]; then
+    eww_update "false" "(.[$id].visible|=\$value)"
+  fi  
+done
+
+# Activate requested tab visibility.
+eww_update "true" "(.[$1].visible|=\$value)"
+
